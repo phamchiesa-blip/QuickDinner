@@ -97,7 +97,8 @@ export const cancelBooking = async (req: AuthenticatedRequest, res: Response): P
 
         // Verify user owns the booking:
         if(booking.user.toString() !== req.user?._id.toString()) {
-            res.status(404).json({message: "Not authorized to cancel this booking!"});
+            res.status(403).json({message: "Not authorized to cancel this booking!"});
+            return;
         }
 
         booking.status = "cancelled";
