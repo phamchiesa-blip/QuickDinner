@@ -6,6 +6,8 @@ import authRouter from "./routes/authRoutes.js";
 import restaurantRouter from "./routes/restaurantRoutes.js";
 import bookingRouter from "./routes/bookingRoutes.js";
 import ownerRouter from './routes/ownerRoutes.js'
+import adminRouter from "./routes/adminRoutes.js";
+import { admin } from "./middleware/auth.js";
 
 const app = express();
 
@@ -13,7 +15,7 @@ const app = express();
 await connectDB();
 
 // Middleware
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 
 const port = process.env.PORT || 5000;
@@ -26,6 +28,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/restaurants", restaurantRouter); 
 app.use("/api/bookings", bookingRouter); 
 app.use("/api/owner", ownerRouter); 
+app.use("/api/admin", adminRouter); 
 
 // Global Error Handler
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
