@@ -62,14 +62,14 @@ export const getAdminStats = async (req: AuthenticatedRequest, res: Response): P
                 total: totalUsers + totalOwners
             },
             restaurants: {
+                total: totalRestaurants,
                 totalRestaurants
             },
             bookings: {
+                total: totalBookings,
                 totalBookings
             },
-            latestBookings: {
-                latestBookings
-            }
+            latestBookings
         });
     } catch (error: any) {
         res.status(400).json({message: error.message});

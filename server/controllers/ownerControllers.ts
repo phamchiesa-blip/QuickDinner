@@ -71,8 +71,13 @@ export const createOwnerRestaurant = async (req: AuthenticatedRequest, res: Resp
         // Handle image
         let imageUrl = "";
         if(req.file) {
-           const result = await uploadToCloudinary(req.file.buffer);
-           imageUrl = result.secure_url;
+           try {
+               const result = await uploadToCloudinary(req.file.buffer);
+               imageUrl = result.secure_url;
+           } catch (uploadError: any) {
+               res.status(400).json({ message: `Upload image to Cloudinary failed: ${uploadError.message}. Vui lòng kiểm tra quyền hạn (permission 'create') của API Key trong Cloudinary.` });
+               return;
+           }
         }
 
         // Setup parsed tags and slots

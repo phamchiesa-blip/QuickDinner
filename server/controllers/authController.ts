@@ -109,7 +109,7 @@ export const getMe = async (req: AuthenticatedRequest, res: Response): Promise<v
             return;
         }
         // có thông tin người dùng trong req.user, trả về thông tin người dùng
-        res.json({ user: req.user });
+        res.json(req.user);
     }catch (error: any) {
         res.status(500).json({ message: 'Error fetching user profile' });
     }

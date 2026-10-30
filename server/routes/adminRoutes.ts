@@ -9,6 +9,6 @@ adminRouter.use(admin);
 
 adminRouter.get("/restaurants", getAllRetaurants);
 adminRouter.put("/restaurants/:id/approve", approveRetaurants);
-adminRouter.get("/stats", approveRetaurants);
+adminRouter.get("/stats", getAdminStats);
 
 export default adminRouter;

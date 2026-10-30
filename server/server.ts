@@ -7,7 +7,6 @@ import restaurantRouter from "./routes/restaurantRoutes.js";
 import bookingRouter from "./routes/bookingRoutes.js";
 import ownerRouter from './routes/ownerRoutes.js'
 import adminRouter from "./routes/adminRoutes.js";
-import { admin } from "./middleware/auth.js";
 
 const app = express();
 
