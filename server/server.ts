@@ -5,7 +5,7 @@ import connectDB from './config/db.js';
 import authRouter from "./routes/authRoutes.js";
 import restaurantRouter from "./routes/restaurantRoutes.js";
 import bookingRouter from "./routes/bookingRoutes.js";
-import ownerRouter from './routes/ownerRoutes.js'
+import ownerRouter from './routes/ownerRoutes.js';
 import adminRouter from "./routes/adminRoutes.js";
 
 const app = express();
@@ -40,3 +40,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
+
+export default app;
